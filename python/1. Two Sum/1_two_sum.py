@@ -5,14 +5,15 @@ class Solution(object):
         :type target: int
         :rtype: List[int]
         """
+        d = {}
         for i, num in enumerate(nums):
-            for j in range(i+1,len(nums)):
-                if nums[j] == target - nums[i]:
-                    return [i, j]
-                    
-            
+            m = target-num
+            if m in d:
+                return([d[m], i])
+            else:
+                 d[num] = i
 
 
 if __name__ == "__main__":
     s = Solution()
-    print(s.twoSum(nums = [2,7,11,15], target = 9))
+    print(s.twoSum(nums=[2, 7, 11, 15], target=9))
